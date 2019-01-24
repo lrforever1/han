@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REM</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        .box {
+            margin-top: 0.2rem;
+            width: 2rem;
+            height: 2rem;
+            background: lightblue;
+        }
+    </style>
+    <!-- 计算REM的换算比例 -->
+    <script>
+        ~ function () {
+            function computed() {
+                // HTML:页面中的HTML标签
+                // W:当前设备的宽度
+                // N：
+                var HTML = document.documentElement,
+                    W = HTML.clientWidth,
+                    D = 375,
+                    N = W / D;
+                HTML.style.fontSize = N * 100 + 'px';
+            }
+            // 开始加载页面（或者页面窗口大小改变），支持computed。重新计算最新的REM和PX换算比例
+            computed();
+            window.addEventListener('resize', computed, false);
+        }();
+    </script>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

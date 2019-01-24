@@ -1,0 +1,256 @@
+html{
+    font-size: 100px;
+}
+
+html,body{
+    height: 100%;
+    overflow: hidden;
+}
+
+.mainBox{
+    position: relative;
+    height: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+.mainBox .previousTip{
+    /* 提示按钮 */
+    position: absolute;
+    width: .25rem;
+    height: .2rem;
+    bottom: .1rem; 
+    left: 50%;
+    margin-left: -.125rem;
+    z-index: 9999;
+    background: url(http://pkfo626jk.bkt.clouddn.com/image/arrow.png) no-repeat;
+    background-size: 100% 100%;
+    animation: previousTipMove .5s infinite both;
+}
+@keyframes previousTipMove{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-.15rem);
+    }
+}
+
+/* 音乐按钮 */
+.mainBox .musicBox {
+    position: absolute;
+    top: .15rem;
+    right: .15rem;
+    z-index: 9999;
+    width: .3rem;
+    height: .3rem;
+    background: url('http://pkfo626jk.bkt.clouddn.com/image/music.svg') no-repeat;
+    background-size: 100% 100%;
+}
+@keyframes musicMove{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.mainBox .musicBox.move{
+    animation: musicMove 1s linear infinite both;
+}
+.swiper-container,
+.swiper-slide {
+    height: 100%;
+    overflow: hidden;
+}
+.swiper-slide{
+    position: relative;
+}
+/* page 1 */
+.page1{
+    position: relative;
+    background: url(http://pkfo626jk.bkt.clouddn.com/image/index_6.png) no-repeat;
+    background-size: cover;
+}
+.page1 img{
+    position: absolute;
+}
+.page1 img:nth-child(1){
+    width: 3.44rem;
+    height: 1.74rem;
+    right: 0;
+    top: 0.27rem;
+}
+.page1 img:nth-child(2){
+    width: 100%;
+    height: 2.75rem;
+    left: 0;
+    bottom: 0;
+}
+.page1 img:nth-child(3){
+    width: 1.6rem;
+    height: 1.05rem;
+    top: 50%;
+    bottom:50%;
+    margin-left: 0.6rem;
+    margin-top: -.125rem;
+}
+.page1 img:nth-child(4){
+    width: 1.25rem;
+    height: 1.4rem;
+    top: 50%;
+    left:50%;
+    margin-left: -1.5rem;
+    margin-top: -1.5rem;
+}
+.page1 img:nth-child(5){
+    width:2rem;
+    height: 2rem;
+    top: 50%;
+    left:50%;
+    margin-left: -.2rem;
+    margin-top: -1.5rem;
+}
+.page2{
+    background: url(http://pkfo626jk.bkt.clouddn.com/image/page2_1.jpg); 
+    background-size: cover;
+}
+/* 儿子代选择器 */
+.page2>img{
+    position: absolute;
+}
+/* .page2>img:nth-child(1){
+     获取.page所有儿子中的第一个；并且他还得是img才可以 
+} */
+.page2>img:nth-of-type(1){
+    /* 获取.page2儿子中所有的img在获取这些img中的第一个 */
+    width: 1.1rem;
+    /* 图片高度不用写，可以让其根据宽度自适应（防止变形），除非必须设定固定高度我们才会写 */
+    left: .4rem;
+    top: .65rem;
+}
+.page2>img:nth-of-type(2){
+    width: 1.1rem;
+    right: .3rem;
+    top: .6rem;
+}
+.page2>img:nth-of-type(3){
+    width: .8rem;
+    right: .3rem;
+    top: 1.7rem;
+}
+.page2>img:nth-of-type(4){
+    width: .9rem;
+    right: .2rem;
+    top: 2.4rem;
+}
+.page2>img:nth-of-type(5){
+    width: .85rem;
+    left: .2rem;
+    bottom:.35rem;
+}
+.page2>img:nth-of-type(6){
+    width: .9rem;
+    left: 50%;
+    margin-left: -.45rem;
+    bottom: .35rem;
+}
+.page2>img:nth-of-type(7){
+    width: .95rem;
+    right: .2rem;
+    bottom: .35rem;
+}
+.page2 .text{
+    position: absolute;
+    top: 1.6rem;
+    left: .4rem;
+}
+.page2 .text p{
+    line-height: .32rem;
+    font-size: .16rem;
+    color: rgb(84, 63, 27);
+}
+
+.page2 .photo{
+    position: absolute;
+    width: 2.72rem;
+    height: 1.62rem;
+    padding: .2rem;
+    background: url('http://pkfo626jk.bkt.clouddn.com/image/page2_6.png') no-repeat;
+    background-size: 100% 100%;
+    left: 50%;
+    margin-left: -1.56rem;
+    bottom: 1.1rem;
+}
+.page2 .photo img{
+    width: 2.72rem;
+    height: 1.62rem;
+}
+/* .page2 .photo video{
+    width: 2.72rem;
+    height: 1.62rem;
+} */
+/* 在某些特定宽高的手机中，可能发生元素重叠，此时我们基于@media进行微调 */
+@media all and (max-height:500px){
+    .page2 .photo{
+        bottom: .7rem;
+    }
+    .page2>img:nth-of-type(5),
+    .page2>img:nth-of-type(6),
+    .page2>img:nth-of-type(7){
+        bottom: .05rem
+    }
+}
+
+/* page 3 =====*/
+/* 为了防止特定手机设备中的元素重叠我们样式布局的时候使用百分比处理（不推荐，写样式算百分比太麻烦） */
+.page3 {
+    background: url(http://pkfo626jk.bkt.clouddn.com/image/page2_1.jpg) no-repeat;
+    background-size: cover;
+}
+.page3>img{
+    position: absolute;
+}
+.page3>img:nth-of-type(1){
+    width: 83%;
+    height: 25%;
+    top: 4%;
+    left: 50%;
+    margin-left: -41.5%;
+}
+.page3>img:nth-of-type(2){
+    width: 100%;
+    left: 0;
+    bottom: 0; 
+}
+.page3 .concat{
+    position: absolute;
+    width: 74%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    margin-left: -37%;
+    margin-top: -15%;
+    background: url('http://pkfo626jk.bkt.clouddn.com/image/page3_2.png') no-repeat;
+    background-size: 100% 100%;
+}
+.page3 .concat img,
+.page3 .concat .text{
+    /* 它的所有百分比 */
+    position: absolute;
+    width: 45%;
+    top: 50%;
+    height: 62%;
+    margin-top: -22%;
+    left: 11%;
+}
+.page3 .concat .text{
+    left: auto;
+    right: -4%;
+}
+.page3 .concat .text p{
+    font-size: .16rem;
+    letter-spacing: .06rem;
+    color: #fff;
+    line-height: .35rem;
+}
+
